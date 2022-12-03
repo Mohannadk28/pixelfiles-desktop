@@ -254,7 +254,7 @@ keys = mytable.join(
     awful.key({ modkey }, "x x", function () awful.spawn(editor) end,
               {description = "open a editor",  group = "applications"}),
 
-    awful.key({        }, "Print", function () awful.spawn.with_shell("shotgun -g $(hacksaw) -f png /home/mohannadk28/Pictures/Screenshots/$(date +%a-%d%b%Y-%H%M%S-%N.png)") end,
+    awful.key({        }, "Print", function () awful.spawn.with_shell("shotgun -g $(hacksaw) -f png /home/mohannadk28/Pictures/Screenshot-$(date +%a-%d%b%Y-%H%M%S-%N.png)") end,
               {description = "captures the whole screen", group="screenshot"}),
     awful.key({ modkey }, "Print", function () awful.spawn.with_shell("shotgun -f png /home/mohannadk28/Pictures/Screenshots/$(date +%a-%d%b%Y-%H%M%S-%N).png") end,
               {description = "captures the whole screen", group="screenshot"}),
