@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PFWMDIR=/home/.pixelfiles/pixelfiles-desktop
-CONFIGDIR=/home/$USER/.config
+PFWMDIR=$HOME/.pixelfiles/pixelfiles-desktop
+CONFIGDIR=$HOME/.config
 
 rm -rf "$CONFIGDIR"/awesome
 rm -rf "$CONFIGDIR"/kitty
