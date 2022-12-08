@@ -10,7 +10,7 @@ You could use the [Pixelfiles Installer](https://github.com/mohannadk28/pixelfil
 
 1. Install all the necessery packages
 ```sh
-sudo pacman -S awesome sddm rofi kitty thunar brightnessctl volumeicon cbatticon network-manager-applet slock
+sudo pacman -S awesome sddm rofi kitty thunar brightnessctl volumeicon cbatticon network-manager-applet picom polkit-gnome slock ttf-ubuntu-font-family
 ```
 
 2. Clone the Repo to it's appropirate directory
