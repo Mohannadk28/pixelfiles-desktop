@@ -33,6 +33,6 @@ sh setup-desktop
 
 ## Credit
 1. [AwesomeWM Config Template](https://github.com/lcpz/awesome-copycats) by [lcpz](https://github.com/lcpz) on [Github](https://github.com)
-2. [Nordic Rofi Theme](https://github.com/undiabler/nord-rofi-theme) by [undiabler](https://github.com/undiabler/) on [Github](https://github.com)
+2. [Nordic Rofi Theme](https://github.com/amayer5125/nord-rofi) by [amayer5125](https://github.com/amayer5125/) on [Github](https://github.com)
 3. [Nordic Kitty Theme](https://github.com/connorholyday/nord-kitty) by [connorholyday](https://github.com/connorholyday/) by [Github](https://github.com)
 4. [Wallpaper](https://unsplash.com/photos/8P-uQaTd8rw) by [Rodion Kutsaiev](https://unsplash.com/@frostroomhead) on [Unsplash](https://unsplash.com)
