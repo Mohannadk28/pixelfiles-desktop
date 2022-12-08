@@ -1,6 +1,6 @@
 # pixelfiles-desktop
 
-the desktop division of my dotfiles
+the desktop division of [my dotfiles](https://github.com/mohannadk28/pixelfiles)
 
 ---
 
@@ -13,7 +13,7 @@ You could use the [Pixelfiles Installer](https://github.com/mohannadk28/pixelfil
 sudo pacman -S awesome sddm rofi kitty thunar brightnessctl volumeicon cbatticon network-manager-applet slock
 ```
 
-2. clone the repo to it's appropirate directory
+2. Clone the Repo to it's appropirate directory
 ```sh
 mkdir -p ~/.pixelfiles
 git clone --recurse-submodules --remote-submodules --depth=1 https://github.com/mohannadk28/pixelfiles-desktop ~/.pixelfiles/pixelfiles-desktop
