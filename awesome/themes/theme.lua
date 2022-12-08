@@ -17,8 +17,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/"
 theme.wallpaper                                 = theme.dir .. "/wall.jpg"
-theme.font                                      = "Terminus 10.5"
-theme.taglist_font                              = "Icons 10"
+theme.font                                      = "Ubuntu Regular 10"
+theme.taglist_font                              = "Ubuntu Regular 10"
 theme.fg_normal                                 = "#D7D7D7"
 theme.fg_focus                                  = "#81a1c1"
 theme.bg_normal                                 = "#3b4252"
@@ -88,7 +88,7 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Terminus 11",
+        font = "Ubuntu Regular 11",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -138,7 +138,7 @@ theme.mpd = lain.widget.mpd({
 -- /home fs
 --[[ commented because it needs Gio/Glib >= 2.54
 theme.fs = lain.widget.fs({
-    notification_preset = { fg = white, bg = theme.bg_normal, font = "Terminus 10.5" },
+    notification_preset = { fg = white, bg = theme.bg_normal, font = "Ubuntu Regular 10.5" },
     settings  = function()
         fs_header = ""
         fs_p      = ""
@@ -185,7 +185,7 @@ theme.volume = lain.widget.alsa({
 -- ]]
 
 -- Separators
-local first     = wibox.widget.textbox('<span font="Terminus 4"> </span>')
+local first     = wibox.widget.textbox('<span font="Ubuntu Regular 4"> </span>')
 local arrl_pre  = separators.arrow_right("alpha", "#4c566a")
 local arrl_post = separators.arrow_right("#4c566a", "alpha")
 
