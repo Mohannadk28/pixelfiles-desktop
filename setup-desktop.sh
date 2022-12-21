@@ -3,6 +3,7 @@
 PFWMDIR=$HOME/.pixelfiles/pixelfiles-desktop
 CONFIGDIR=$HOME/.config
 
+rm -rf "$HOME"/.conkyrc
 rm -rf "$CONFIGDIR"/awesome
 rm -rf "$CONFIGDIR"/kitty
 rm -rf "$CONFIGDIR"/volumeicon
@@ -14,3 +15,4 @@ ln -s "$PFWMDIR"/rofi "$CONFIGDIR"/rofi
 ln -s "$PFWMDIR"/picom.conf "$CONFIGDIR"/picom.conf
 ln -s "$PFWMDIR"/kitty "$CONFIGDIR"/kitty
 ln -s "$PFWMDIR"/volumeicon "$CONFIGDIR"/volumeicon
+ln -s "$PFWMDIR"/conky.lua "$HOME"/.conkyrc

@@ -1,20 +1,9 @@
---[[
-
-     Blackburn Awesome WM theme 3.0
-     github.com/lcpz
-
---]]
-
-local gears = require("gears")
-local lain  = require("lain")
-local awful = require("awful")
-local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
-local theme                                     = {}
+theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/"
 theme.wallpaper                                 = theme.dir .. "/wall.jpg"
 theme.font                                      = "Ubuntu Regular 10"
@@ -74,14 +63,14 @@ theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/
 theme.titlebar_minimize_button_focus            = theme.dir .. "/icons/titlebar/minimize_focus.png"
 theme.titlebar_minimize_button_normal           = theme.dir .. "/icons/titlebar/minimize_normal.png"
 
-awful.util.tagnames   = { "web", "dev", "game", "art", "file", "lab" }
+awful.util.tagnames = { "web", "dev", "game", "art", "file", "lab" }
 
 local markup     = lain.util.markup
 local separators = lain.util.separators
 local gray       = "#9E9C9A"
 
 -- Textclock
-local mytextclock = wibox.widget.textclock("| %a %d %b. %Y | %P %I:%M:%S |")
+mytextclock = wibox.widget.textclock("| %a %d %b. %Y | %P %I:%M:%S |")
 mytextclock.font = theme.font
 
 -- Calendar
