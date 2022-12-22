@@ -387,10 +387,22 @@ globalkeys = mytable.join(
     --          {description = "delete tag", group = "tag"}),
 
     -- Standard program
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
-              {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift" }, "w", function () 
+        local grabber
+        grabber = awful.keygrabber.run(
+          function(_, key, event)
+            if event == "release" then return end
+
+            if     key == "w" then awful.spawn.with_shell("bash ~/.pixelfiles/pixelfiles-desktop/rofipixels/switch.sh")
+            elseif key == "r" then awesome.restart()
+            elseif key == "q" then awesome.quit()
+            end
+            
+            awful.keygrabber.stop(grabber)
+          end
+        )
+      end,
+      {description = "Quit Menu followed by KEY", group = "awesome"}),
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
