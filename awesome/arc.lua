@@ -27,17 +27,11 @@ mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 modkey       = "Mod4"
 altkey       = "Mod1"
 
-defbrowser   = "qutebrowser"
-cbrowser     = "chromium"
-fbrowser     = "firefox"
-
-guifm        = "thunar"
-tuifm        = "kitty ranger"
-
 terminal     = "kitty"
-vieditor     = "kitty nvim"
-
+browser      = "firefox"
+fileman      = "thunar"
 lockscreen   = "slock"
+editor       = "kitty nvim"
 
 
 -- }}}
@@ -418,63 +412,79 @@ globalkeys = mytable.join(
         end
     end, {description = "restore minimized", group = "client"}),
 
+    -- Dropdown application
+    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
+              {description = "dropdown application", group = "launcher"}),
+
+    -- Widgets popupsw
+    --awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
+    --          {description = "show calendar", group = "widgets"}),
+    --awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
+    --          {description = "show filesystem", group = "widgets"}),
+    --awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
+    --          {description = "show weather", group = "widgets"}),
+
     -- Screen brightness
     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("brightnessctl s 10+%") end,
               {description = "+10%", group = "hotkeys"}),
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("brightnessctl s 10-%") end,
               {description = "-10%", group = "hotkeys"}),
 
+    -- MPD control
+    awful.key({ altkey, "Control" }, "Up",
+        function ()
+            os.execute("mpc toggle")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc toggle", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Down",
+        function ()
+            os.execute("mpc stop")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc stop", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Left",
+        function ()
+            os.execute("mpc prev")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc prev", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Right",
+        function ()
+            os.execute("mpc next")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc next", group = "widgets"}),
+    awful.key({ altkey }, "0",
+        function ()
+            local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
+            if beautiful.mpd.timer.started then
+                beautiful.mpd.timer:stop()
+                common.text = common.text .. lain.util.markup.bold("OFF")
+            else
+                beautiful.mpd.timer:start()
+                common.text = common.text .. lain.util.markup.bold("ON")
+            end
+            naughty.notify(common)
+        end,
+        {description = "mpc on/off", group = "widgets"}),
+
+    -- Copy primary to clipboard (terminals to gtk)
+    --awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
+    --          {description = "copy terminal to gtk", group = "hotkeys"}),
+    -- Copy clipboard to primary (gtk to terminals)
+    --awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
+    --          {description = "copy gtk to terminal", group = "hotkeys"}),
+
     -- User programs
-    awful.key( {modkey}, "b", function()
-      local grabber
-      grabber =
-        awful.keygrabber.run(
-          function(_, key, event)
-            if event == "release" then return end
-
-            if     key == "f" then awful.spawn(fbrowser)
-            elseif key == "c" then awful.spawn(cbrowser)
-            elseif key == "b" then awful.spawn(defbrowser)
-            end
-            awful.keygrabber.stop(grabber)
-            end
-          )
-     end,
-     {description = "Open a Browser followed by KEY", group = "applications"}
-    ),
-
-    awful.key( {modkey}, "e", function()
-      local grabber
-      grabber =
-        awful.keygrabber.run(
-          function(_, key, event)
-            if event == "release" then return end
-
-            if     key == "e" then awful.spawn(guifm)
-            elseif key == "w" then awful.spawn(tuifm)
-            end
-            awful.keygrabber.stop(grabber)
-            end
-          )
-     end,
-     {description = "Open a Filemanager followed by KEY", group = "applications"}
-    ),
-
-    awful.key({ modkey }, "x", function () 
-        local grabber
-        grabber = awful.keygrabber.run(
-          function(_, key, event)
-            if event == "release" then return end
-
-            if     key == "x" then awful.spawn(terminal)
-            elseif key == "z" then awful.spawn(vieditor)
-          end
-          awful.keygrabber.stop(grabber)
-        end
-        )
-      end,
-    {description = "Open Editor or Terminal followed by KEY", group = "applications"}
-    ),
+    awful.key({ modkey }, "b", function () awful.spawn(browser) end,
+              {description = "run browser",      group = "applications"}),
+    awful.key({ modkey }, "e", function () awful.spawn(fileman) end,
+              {description = "run file manager", group = "applications"}),
+    awful.key({ modkey }, "x", function () awful.spawn(terminal) end,
+              {description = "open a terminal",  group = "applications"}),
+    awful.key({ modkey, 'Shift' }, "x", function () awful.spawn(editor) end,
+              {description = "open a editor",  group = "applications"}),
 
     awful.key({        }, "Print", function () awful.spawn.with_shell("shotgun -g $(hacksaw) -f png /home/mohannadk28/Pictures/Screenshot-$(date +%a-%d%b%Y-%H%M%S-%N.png)") end,
               {description = "captures the whole screen", group="screenshot"}),
@@ -718,6 +728,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
+awful.spawn.with_shell("emacs --daemon")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
 awful.spawn("picom")

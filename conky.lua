@@ -88,7 +88,7 @@ conky.config = {
 };
 
 conky.text = [[
-${alignc}${color0}${font2}${time %H:%M}${font}
+${alignc}${color0}${font2}${time %P %I:%M}${font}
 ${voffset 6}${alignc}${color0}${font3}${time %d %b. %Y}${font}${color}
 ${voffset 18}${goto 12}${color3}CPU${goto 50}$cpu%
 ${color2}${goto 12}${cpubar 8,254}
@@ -102,15 +102,21 @@ ${goto 12}${color1}${top_mem name 2}$alignr$color${top_mem mem_res 2}
 ${goto 12}${color1}${top_mem name 3}$alignr$color${top_mem mem_res 3}
 ${voffset 18}${color1}${alignc}${font4}AWESOME KEYBINDINGS${font}${color}
 ${color1}${hr}${color}
+${color1}[S]+[SHIFT]+[1-9]${alignr}${color2}send window${color}
+${color1}[S]+[1-9]${alignr}${color2}switch workspace${color}
+${color1}[S]+a s${alignr}${color2}move between workplaces${color}
 ${color1}[S]+r${alignr}${color2}run prompt${color}
 ${color1}[S]+w${alignr}${color2}close window${color}
-${color1}[S]+[1-9]${alignr}${color2}switch workspace${color}
-${color1}[S]+[SHIFT]+[1-9]${alignr}${color2}send window${color}
 ${color1}${hr}${color}
-${color1}[S]+e ${alignr}${color2}open File Manager${color}
-${color1}[S]+x${alignr}${color2}open Terminal${color}
-${color1}[S]+b${alignr}${color2}open Browser${color}
-${color1}[S]+[SHIFT]+x ${alignr}${color2}open Editor${color}
+${color1}[S]+b b${alignr}${color2}Open Qutebrowser
+${color1}[S]+b c${alignr}${color2}Open Chromium
+${color1}[S]+b f${alignr}${color2}Open Firefox
+${color1}${hr}${color}
+${color1}[S]+e e${alignr}${color2}Open a GUI File Manager
+${color1}[S]+e w${alignr}${color2}Open a TUI File Manager
+${color1}${hr}${color}
+${color1}[S]+x x${alignr}${color2}Open Terminal
+${color1}[S]+x z${alignr}${color2}Open Neovim
 ${color1}${hr}${color}
 ${color1}[S]+[SHIFT]+r${alignr}${color2}restart awesome${color}
 ${color1}[S]+[SHIFT]+w${alignr}${color2}quit awesome${color}

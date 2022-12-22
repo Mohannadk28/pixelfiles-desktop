@@ -70,7 +70,7 @@ local separators = lain.util.separators
 local gray       = "#9E9C9A"
 
 -- Textclock
-mytextclock = wibox.widget.textclock("| %a %d %b. %Y | %P %I:%M:%S |")
+mytextclock = wibox.widget.textclock("| %a %d %b. %Y | %P %I:%M:%S |", 1)
 mytextclock.font = theme.font
 
 -- Calendar
