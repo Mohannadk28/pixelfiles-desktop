@@ -118,7 +118,8 @@ ${color1}${hr}${color}
 ${color1}[S]+x x${alignr}${color2}Open Terminal
 ${color1}[S]+x z${alignr}${color2}Open Neovim
 ${color1}${hr}${color}
-${color1}[S]+[SHIFT]+r${alignr}${color2}restart awesome${color}
-${color1}[S]+[SHIFT]+w${alignr}${color2}quit awesome${color}
+${color1}[S]+[SHIFT]+w w${alignr}${color2}PowerOFF Menu${color}
+${color1}[S]+[SHIFT]+w r${alignr}${color2}Restart Awesome${color}
+${color1}[S]+[SHIFT]+w q${alignr}${color2}Quit Awesome${color}
 ]];
 
