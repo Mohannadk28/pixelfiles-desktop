@@ -152,21 +152,21 @@ local bat = lain.widget.bat({
 })
 
 -- ALSA volume
-theme.volume = lain.widget.alsa({
-    --togglechannel = "IEC958,3",
-    settings = function()
-        header = " Vol "
-        vlevel  = volume_now.level
-
-        if volume_now.status == "off" then
-            vlevel = vlevel .. "M "
-        else
-            vlevel = vlevel .. " "
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, header) .. vlevel))
-    end
-})
+--theme.volume = lain.widget.alsa({
+--    --togglechannel = "IEC958,3",
+--    settings = function()
+--        header = " Vol "
+--        vlevel  = volume_now.level
+--
+--        if volume_now.status == "off" then
+--            vlevel = vlevel .. "M "
+--        else
+--            vlevel = vlevel .. " "
+--        end
+--
+--        widget:set_markup(markup.font(theme.font, markup(gray, header) .. vlevel))
+--    end
+--})
 
 -- Weather
 --[[ to be set before use
