@@ -27,9 +27,9 @@ mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 modkey       = "Mod4"
 altkey       = "Mod1"
 
-defbrowser   = "qutebrowser"
+defbrowser   = "firefox"
 cbrowser     = "chromium"
-fbrowser     = "firefox"
+ebrowser     = "epiphany"
 
 guifm        = "thunar"
 tuifm        = "kitty ranger"
@@ -444,7 +444,7 @@ globalkeys = mytable.join(
           function(_, key, event)
             if event == "release" then return end
 
-            if     key == "f" then awful.spawn(fbrowser)
+            if     key == "e" then awful.spawn(ebrowser)
             elseif key == "c" then awful.spawn(cbrowser)
             elseif key == "b" then awful.spawn(defbrowser)
             end

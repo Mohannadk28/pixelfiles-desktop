@@ -108,9 +108,9 @@ ${color1}[S]+a s${alignr}${color2}move between workplaces${color}
 ${color1}[S]+r${alignr}${color2}run prompt${color}
 ${color1}[S]+w${alignr}${color2}close window${color}
 ${color1}${hr}${color}
-${color1}[S]+b b${alignr}${color2}Open Qutebrowser
+${color1}[S]+b b${alignr}${color2}Open Firefox
 ${color1}[S]+b c${alignr}${color2}Open Chromium
-${color1}[S]+b f${alignr}${color2}Open Firefox
+${color1}[S]+b e${alignr}${color2}Open Epiphany
 ${color1}${hr}${color}
 ${color1}[S]+e e${alignr}${color2}Open a GUI File Manager
 ${color1}[S]+e w${alignr}${color2}Open a TUI File Manager
