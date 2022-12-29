@@ -5,7 +5,6 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/"
-theme.wallpaper                                 = theme.dir .. "/wall.jpg"
 theme.font                                      = "Ubuntu Regular 10"
 theme.taglist_font                              = "Ubuntu Regular 10"
 theme.fg_normal                                 = "#D7D7D7"

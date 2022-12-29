@@ -214,19 +214,6 @@ end)
 
 -- {{{ Screen
 
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", function(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end)
-
 -- No borders when rearranging only 1 non-floating or maximized client
 screen.connect_signal("arrange", function (s)
     local only_one = #s.tiled_clients == 1
@@ -740,7 +727,10 @@ awful.spawn("blueman-applet")
 awful.spawn("megasync")
 awful.spawn.with_shell("persepols --tray")
 
+awful.spawn.with_shell("bash /home/mohannadk28/.config/awesome/pipeinit.sh")
+awful.spawn.with_shell("bash ~/.xinitrc")
 awful.spawn("volumeicon")
 awful.spawn.with_shell("cbatticon")
 
 awful.spawn.with_shell("killall conky; sleep 1; conky")
+awful.spawn.with_shell("feh --bg-fill -z ~/.wallpapers/")
